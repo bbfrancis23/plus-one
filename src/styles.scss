@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+@import "themes";
+
+// custom component theming
+@import 'app/app.theme';
+@import 'app/parallax/parallax.theme';
+//@import 'app/section/section.theme.scss';
+
+@mixin custom-components-theme($theme) {
+  @include  app-theme($theme);
+  @include  parallax-theme($theme);
+  @include  parallax-row-theme($theme);
+}
+
+.arizona-theme{
+  @include angular-material-theme($arizona-theme);
+  @include custom-components-theme($arizona-theme);
+}
+
+.corporate-theme{
+  @include angular-material-theme($corp-theme);
+  @include custom-components-theme($corp-theme);
+}
+
+.lush-theme{
+  @include angular-material-theme($lush-theme);
+  @include custom-components-theme($lush-theme);
+}
+
+.pirate-theme{
+  @include angular-material-theme($pirate-theme);
+  @include custom-components-theme($pirate-theme);
+}
+
+* { box-sizing:border-box }
+body, html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

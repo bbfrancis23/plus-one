@@ -1,0 +1,59 @@
+@import '../../../node_modules/@angular/material/theming';
+
+@mixin parallax-theme($theme) {
+  div.parallax-container{ height: 100% }
+}
+
+@mixin parallax-row-theme($theme) {
+
+  // theme variables
+  $theme-background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  // component variables
+  $background-layer-level: -1;
+
+  .parallax-img-row{
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .parallax-row{ background: mat-color($theme-background, background) }
+
+  .parallax-row-primary{ background: mat-color($primary)  }
+
+  .parallax-row-accent{ background: mat-color($accent)  }
+
+  .parallax-img{
+    @extend .parallax-img-row;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    background-color:  mat-color($theme-background, background);
+    z-index: $background-layer-level;
+  }
+
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    background-color:  mat-color($theme-background, background);
+    z-index: $background-layer-level;
+  }
+
+  div.overlay-primary{
+    @extend .overlay;
+    background-color:  mat-color($primary);
+  }
+
+  div.overlay-accent{
+    @extend .overlay;
+    background-color:  mat-color($accent);
+  }
+}
