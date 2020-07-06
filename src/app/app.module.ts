@@ -35,6 +35,7 @@ import { ParallaxModule } from './parallax/parallax.module';
     MatCardModule,
     ParallaxModule
   ],
+  exports: [MatIconModule,],
   providers: [],
   bootstrap: [AppComponent]
 })

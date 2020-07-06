@@ -19,6 +19,5 @@ export class ParallaxRowComponent implements OnInit {
     this.color = this.color ? this.color : false;
     this.accent = this.accent ? this.accent : false;
 
-    console.log(this);
   }
 }

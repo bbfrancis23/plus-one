@@ -1,46 +1,18 @@
-<!--<parallax>-->
-<!--<mat-menu #themesMenu overlapTrigger >-->
-<!--  <mat-grid-list cols="2">-->
-<!--    <mat-grid-tile *ngFor="let theme of themes">-->
-<!--      <div class="choose-theme-tile" [ngClass]="{'choose-theme-tile-active': (themeService.getTheme() | async) === theme.name}" mat-menu-item role="menuitem" (click)="themeService.setTheme(theme.name)">-->
-<!--        <div class="swatch" [style.background]="'linear-gradient(-45deg, '+theme.getColor('primary')+' 35%,  '+theme.getColor('accent')+' 100%)'"></div>-->
-<!--      </div>-->
-<!--    </mat-grid-tile>-->
-<!--  </mat-grid-list>-->
-<!--</mat-menu>-->
-<!--<button class="settings-button" mat-fab aria-label="Theme Settings" [mat-menu-trigger-for]="themesMenu" >-->
-<!--  <mat-icon >invert_colors</mat-icon>-->
-<!--</button>-->
-<!--<parallax-row  [img]="'./assets/theme/arizona/parallax/primary.jpg'" [color]="true">-->
-<!--  <ng-container parallax="true" >-->
-<!--    <mat-grid-list cols="11" rowHeight="12.5vh" gutterSize="0px">-->
-<!--      <mat-grid-tile colspan="11"></mat-grid-tile>-->
-<!--      <mat-grid-tile rowspan="6"></mat-grid-tile>-->
-<!--      <mat-grid-tile colspan="9" rowspan="6">-->
-<!--        <mat-card>-->
-<!--          <mat-card-header>-->
-<!--            <mat-card-title>Person</mat-card-title>-->
-<!--          </mat-card-header>-->
-<!--          <mat-card-content>-->
 
-<!--          </mat-card-content>-->
-<!--        </mat-card>-->
-<!--      </mat-grid-tile>-->
-<!--      <mat-grid-tile colspan="11"></mat-grid-tile>-->
-<!--      <mat-grid-tile rowspan="6"></mat-grid-tile>-->
-<!--    </mat-grid-list>-->
-<!--  </ng-container>-->
-<!--</parallax-row>-->
-
-
-<!--  <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/support-0.jpg'" [height]="'400px'" ></parallax-row>-->
-<!--  <parallax-row color="true" [accent]="true"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></parallax-row>-->
-<!--  <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/support-1.jpg'" [height]="'400px'"></parallax-row>-->
-<!--  <parallax-row  ><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></parallax-row>-->
-<!--  <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/primary.jpg'" [height]="'100vh'"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></parallax-row>-->
-
-<!--</parallax>-->
 <parallax>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button  aria-label="Home" routerLink="/home">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button class="menu-button" mat-button routerLink="/customers">CUSTOMERS</button>
+    <button mat-button routerLink="/profile">PROFILE</button>
+    <span class="greedy-spacer"></span>
+    <button  mat-icon-button aria-label="Theme Settings" [mat-menu-trigger-for]="themesMenu" >
+      <mat-icon >invert_colors</mat-icon>
+    </button>
+  </mat-toolbar>
+
 
   <mat-menu #themesMenu overlapTrigger >
     <mat-grid-list cols="2">
@@ -51,27 +23,26 @@
       </mat-grid-tile>
     </mat-grid-list>
   </mat-menu>
-  <button class="settings-button" mat-fab aria-label="Theme Settings" [mat-menu-trigger-for]="themesMenu" >
-    <mat-icon >invert_colors</mat-icon>
-  </button>
 
-  <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/primary.jpg'" [color]="true">-->
+
+  <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/primary.jpg'" [color]="true">
     <ng-container parallax="true" >
       <mat-grid-list cols="11" rowHeight="12.5vh" gutterSize="0px">
         <mat-grid-tile colspan="11"></mat-grid-tile>
         <mat-grid-tile rowspan="6"></mat-grid-tile>
         <mat-grid-tile colspan="9" rowspan="6">
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>Person</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-<!--              <h1>{{(_myPerson.asObservable() | async)?.firstName}} {{(_myPerson.asObservable() | async)?.lastName}}</h1>-->
-<!--              <button mat-raised-button color="accent" (click)="setMyPerson({firstName: 'John', lastName: 'Smith' })">Change Name</button>-->
-<!--              <br><br>-->
-<!--              <button mat-raised-button color="primary" (click)="_myPerson.complete()">Complete</button>-->
-            </mat-card-content>
-          </mat-card>
+
+            <router-outlet></router-outlet>
+
+
+<!--          <mat-card>-->
+<!--            <mat-card-header>-->
+<!--              <mat-card-title>Here</mat-card-title>-->
+<!--            </mat-card-header>-->
+<!--            <mat-card-content>-->
+<!--  -->
+<!--            </mat-card-content>-->
+<!--          </mat-card>-->
         </mat-grid-tile>
         <mat-grid-tile colspan="11"></mat-grid-tile>
         <mat-grid-tile rowspan="6"></mat-grid-tile>
@@ -79,10 +50,10 @@
     </ng-container>
   </parallax-row>
 
-  <!--  <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/primary.jpg'" color="true">-->
-  <!--    <ng-container parallax="true" ><app-heading></app-heading></ng-container>-->
-  <!--  </parallax-row>-->
-<!--  <parallax-row color="true"><app-skills></app-skills></parallax-row>-->
+    <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/primary.jpg'" [color]="true" [height]="'400px'">
+      <ng-container parallax="true" ></ng-container>
+    </parallax-row>
+   <parallax-row [color]="true" [height]="'400px'"></parallax-row >
   <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/support-0.jpg'" [height]="'400px'" ></parallax-row>
   <parallax-row [color]="true" [accent]="true"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></parallax-row>
   <parallax-row  [img]="'./assets/theme/'+(themeService.getTheme() | async)+'/parallax/support-1.jpg'" [height]="'400px'"></parallax-row>
